@@ -103,3 +103,16 @@ body {
   from { top: 100vh; }
   to { top: -50px; }
 }
+/* Fix food layout */
+.food-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.food {
+  width: 250px;
+  text-align: center;
+}
