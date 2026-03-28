@@ -1,0 +1,105 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffe4ec, #ffc0cb);
+  margin: 0;
+  padding: 0;
+}
+
+/* 👑 Gold title */
+.logo {
+  color: #d4af37;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+/* tagline */
+.tagline {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  background-color: #ff69b4;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
+
+/* layout */
+.food-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.food {
+  margin: 15px;
+  width: 200px;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* images */
+.food img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* price */
+.price {
+  font-weight: bold;
+  color: green;
+}
+/* base */
+.floating {
+  position: fixed;
+  font-size: 25px;
+  opacity: 0.6;
+}
+
+/* LEFT side (falling down) */
+.left1 {
+  left: 10%;
+  animation: fall 6s linear infinite;
+}
+
+.left2 {
+  left: 25%;
+  animation: fall 8s linear infinite;
+}
+
+/* RIGHT side (rising up) */
+.right1 {
+  left: 70%;
+  animation: rise 7s linear infinite;
+}
+
+.right2 {
+  left: 85%;
+  animation: rise 9s linear infinite;
+}
+
+/* animations */
+@keyframes fall {
+  from { top: -50px; }
+  to { top: 100vh; }
+}
+
+@keyframes rise {
+  from { top: 100vh; }
+  to { top: -50px; }
+}
