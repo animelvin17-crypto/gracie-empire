@@ -103,25 +103,3 @@ body {
   from { top: 100vh; }
   to { top: -50px; }
 }
-/* Default (phone) */
-/* Fix food layout */
-.food-container {
-  display: flex;
-  justify-content: flex-start;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: auto;
-}
-
-/* Laptop/Desktop fix */
-@media (min-width: 768px) {
-   .food-container {
-    justify-content: center;
- 
-  }
-
-.food {
-  width: 250px;
-  text-align: center;
-}
