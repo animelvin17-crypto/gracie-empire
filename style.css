@@ -46,7 +46,7 @@ body {
 
 .food {
   margin: 15px;
-  width: 200px;
+  width: 170px;
   background: white;
   padding: 10px;
   border-radius: 12px;
@@ -102,17 +102,4 @@ body {
 @keyframes rise {
   from { top: 100vh; }
   to { top: -50px; }
-}
-/* Fix food layout */
-.food-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: auto;
-}
-
-.food {
-  width: 250px;
-  text-align: center;
 }
