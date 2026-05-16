@@ -1,103 +1,242 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
   margin:0;
   padding:0;
+  box-sizing:border-box;
+}
+
+body{
   background:#050505;
   color:white;
-  font-family:Poppins,sans-serif;
+  font-family:'Poppins',sans-serif;
   overflow-x:hidden;
 }
 
 /* HEADER */
+
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:25px 40px;
-  border-bottom:1px solid rgba(212,175,55,0.25);
+
+  padding:25px 50px;
+
+  border-bottom:1px solid rgba(212,175,55,0.2);
+
   background:black;
+
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
-  color:#d4af37;
-  font-size:2.2rem;
+  font-size:2.8rem;
   font-weight:700;
+  color:#d4af37;
+
+  letter-spacing:2px;
+
+  text-shadow:0 0 10px rgba(212,175,55,0.3);
 }
 
 .tagline{
   color:#999;
-  margin-top:-10px;
+  margin-top:5px;
 }
 
-/* NAV */
+/* BUTTONS */
+
 .top-buttons{
   display:flex;
   gap:15px;
 }
 
 .btn{
-  padding:12px 22px;
+  padding:14px 25px;
+
   border:1px solid #d4af37;
-  color:#d4af37;
+
+  border-radius:14px;
+
   text-decoration:none;
-  border-radius:12px;
+
+  color:#d4af37;
+
   transition:.3s;
+
+  font-weight:600;
 }
 
 .btn:hover{
   background:#d4af37;
   color:black;
+
+  transform:translateY(-3px);
+
+  box-shadow:0 0 20px rgba(212,175,55,0.4);
 }
 
-/* TITLES */
+/* HERO */
+
+.hero{
+  min-height:85vh;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.hero h1{
+  font-size:5rem;
+
+  color:white;
+
+  margin-bottom:20px;
+
+  animation:fadeUp 1.2s ease;
+}
+
+.hero p{
+  color:#bbb;
+  font-size:1.3rem;
+
+  animation:fadeUp 1.8s ease;
+}
+
+/* SMOKE EFFECT */
+
+.smoke{
+  position:absolute;
+
+  width:600px;
+  height:600px;
+
+  background:radial-gradient(
+    rgba(255,255,255,0.08),
+    transparent 70%
+  );
+
+  filter:blur(40px);
+
+  animation:smokeMove 8s infinite alternate;
+}
+
+@keyframes smokeMove{
+
+  from{
+    transform:translateY(0px);
+  }
+
+  to{
+    transform:translateY(-60px);
+  }
+
+}
+
+/* TITLE */
+
 h2{
   text-align:center;
+
   color:#d4af37;
-  font-size:2.5rem;
-  margin-top:60px;
+
+  font-size:3rem;
+
+  margin:60px 0 20px;
 }
 
 /* MENU GRID */
+
 .menu{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
   gap:35px;
+
   padding:50px;
 }
 
 /* LUXURY CARD */
+
 .item{
-  background:rgba(18,18,18,0.96);
+  background:rgba(15,15,15,0.95);
 
-  border:1px solid rgba(212,175,55,0.2);
+  border:1px solid rgba(212,175,55,0.15);
 
-  border-radius:28px;
+  border-radius:30px;
 
   overflow:hidden;
 
   transition:.4s;
 
-  box-shadow:
-  0 0 20px rgba(212,175,55,0.05),
-  0 15px 40px rgba(0,0,0,0.8);
-
   position:relative;
+
+  box-shadow:
+  0 0 25px rgba(212,175,55,0.05),
+  0 20px 50px rgba(0,0,0,0.9);
 }
 
 .item:hover{
-  transform:translateY(-12px);
+
+  transform:
+  translateY(-12px)
+  scale(1.02);
 
   border-color:#d4af37;
 
   box-shadow:
-  0 0 25px rgba(212,175,55,0.18),
-  0 20px 50px rgba(0,0,0,1);
+  0 0 30px rgba(212,175,55,0.18),
+  0 25px 60px rgba(0,0,0,1);
 }
 
-/* IMAGE */
+/* GOLD LINE */
+
+.item::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-100%;
+
+  width:100%;
+  height:2px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #d4af37,
+    transparent
+  );
+
+  transition:.7s;
+}
+
+.item:hover::before{
+  left:100%;
+}
+
+/* IMAGES */
+
 .item img{
   width:100%;
-  height:270px;
+  height:280px;
+
   object-fit:cover;
+
   transition:.5s;
 }
 
@@ -106,41 +245,53 @@ h2{
 }
 
 /* CONTENT */
+
 .item-content{
   padding:25px;
 }
 
 .item-content h3{
-  color:#fff;
-  font-size:1.7rem;
-  margin-bottom:12px;
+  font-size:1.8rem;
+
+  margin-bottom:15px;
+
+  color:white;
 }
 
 .item-content p{
   color:#aaa;
-  line-height:1.6;
+
+  line-height:1.7;
+
+  margin-bottom:20px;
 }
 
 .price{
   color:#d4af37;
+
   font-size:1.5rem;
-  margin:20px 0;
+
   font-weight:bold;
+
+  margin-bottom:25px;
 }
 
 /* ORDER BUTTON */
+
 .order-btn{
   display:block;
+
   text-align:center;
+
+  background:#d4af37;
+
+  color:black;
 
   padding:15px;
 
-  background:#d4af37;
-  color:black;
+  border-radius:15px;
 
   text-decoration:none;
-
-  border-radius:14px;
 
   font-weight:700;
 
@@ -149,32 +300,105 @@ h2{
 
 .order-btn:hover{
   background:white;
+
   transform:scale(1.03);
 }
 
 /* DELIVERY */
+
 .delivery{
   text-align:center;
-  color:#bbb;
-  margin:50px 0;
+
+  color:#999;
+
   font-size:1.2rem;
+
+  margin:60px 0;
+}
+
+/* FLOATING FOOD */
+
+.floating{
+  position:fixed;
+
+  font-size:2rem;
+
+  opacity:.12;
+
+  pointer-events:none;
+
+  animation:float 10s infinite linear;
+}
+
+.floating1{
+  top:20%;
+  left:5%;
+}
+
+.floating2{
+  top:60%;
+  right:10%;
+}
+
+.floating3{
+  bottom:15%;
+  left:15%;
+}
+
+.floating4{
+  top:35%;
+  right:25%;
+}
+
+@keyframes float{
+
+  from{
+    transform:translateY(0px);
+  }
+
+  to{
+    transform:translateY(-40px);
+  }
+
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
 
   header{
     flex-direction:column;
     align-items:flex-start;
     gap:15px;
+
+    padding:20px;
   }
 
   .logo{
-    font-size:2.5rem;
+    font-size:2.2rem;
   }
 
-  h2{
-    font-size:2rem;
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+    padding:0 20px;
   }
 
   .menu{
@@ -186,13 +410,17 @@ h2{
     height:320px;
   }
 
-  .btn{
-    width:100%;
-    text-align:center;
+  h2{
+    font-size:2.2rem;
   }
 
   .top-buttons{
     width:100%;
     flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
   }
 }
