@@ -1,110 +1,78 @@
-body {
-  font-family: Arial;
-  text-align: center;
-  background: linear-gradient(to bottom, #ffe4ec, #ffc0cb);
-  margin: 0;
-  padding: 0;
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px;
 }
 
-/* 👑 Gold title */
-.logo {
+.item {
+  background: rgba(20,20,20,0.95);
+  border: 1px solid rgba(212,175,55,0.3);
+
+  border-radius: 25px;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.08),
+    0 10px 30px rgba(0,0,0,0.6);
+
+  transition: 0.4s ease;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(212,175,55,0.8);
+
+  box-shadow:
+    0 0 25px rgba(212,175,55,0.25),
+    0 15px 40px rgba(0,0,0,0.8);
+}
+
+.item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.item-content {
+  padding: 20px;
+}
+
+.item h3 {
   color: #d4af37;
-  font-size: 40px;
-  margin-top: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-/* tagline */
-.tagline {
-  font-size: 18px;
+.item p {
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.price {
+  color: white;
+  font-size: 1.3rem;
   margin-bottom: 20px;
 }
 
-/* buttons */
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin: 10px;
-  background-color: #ff69b4;
-  color: white;
+.order-btn {
+  display: block;
+  text-align: center;
+
+  background: #d4af37;
+  color: black;
+
+  padding: 14px;
+  border-radius: 12px;
+
   text-decoration: none;
-  border-radius: 8px;
   font-weight: bold;
+
   transition: 0.3s;
 }
 
-.btn:hover {
-  background-color: #ff1493;
-  transform: scale(1.05);
-}
-
-/* layout */
-.food-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.food {
-  margin: 15px;
-  width: 170px;
+.order-btn:hover {
   background: white;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transform: scale(1.03);
 }
-
-/* images */
-.food img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* price */
-.price {
-  font-weight: bold;
-  color: green;
-}
-/* base */
-.floating {
-  position: fixed;
-  font-size: 25px;
-  opacity: 0.6;
-}
-
-/* LEFT side (falling down) */
-.left1 {
-  left: 10%;
-  animation: fall 6s linear infinite;
-}
-
-.left2 {
-  left: 25%;
-  animation: fall 8s linear infinite;
-}
-
-/* RIGHT side (rising up) */
-.right1 {
-  left: 70%;
-  animation: rise 7s linear infinite;
-}
-
-.right2 {
-  left: 85%;
-  animation: rise 9s linear infinite;
-}
-
-/* animations */
-@keyframes fall {
-  from { top: -50px; }
-  to { top: 100vh; }
-}
-
-@keyframes rise {
-  from { top: 100vh; }
-  to { top: -50px; }
-}
-img {
-    max-width: 100%;
-    height : auto;
-    display: block;
-    margin: 0 auto; /* This centers the image*/
