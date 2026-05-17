@@ -2,8 +2,65 @@
   <!-- HEADER -->
 
   <header>
-  <div class="shop-status" id="shopStatus">
-  🟢 WE ARE OPEN
+  <script>
+
+let isOpen = true;
+
+const status =
+document.getElementById("shopStatus");
+
+/* SECRET ADMIN MODE */
+
+document.addEventListener("keydown",(e)=>{
+
+  /* CTRL + SHIFT + O */
+
+  if(
+    e.ctrlKey &&
+    e.shiftKey &&
+    e.key.toLowerCase() === "o"
+  ){
+
+    let pass =
+    prompt("Admin Password");
+
+    if(pass === "1009"){
+
+      isOpen = !isOpen;
+
+      if(isOpen){
+
+        status.innerHTML =
+        "🟢 WE ARE OPEN";
+
+        status.style.background =
+        "#081c0d";
+
+        status.style.color =
+        "#4cff88";
+
+      }
+
+      else{
+
+        status.innerHTML =
+        "🔴 WE ARE CLOSED";
+
+        status.style.background =
+        "#2a0808";
+
+        status.style.color =
+        "#ff5c5c";
+
+      }
+
+    }
+
+  }
+
+});
+
+</script>
 </div>
 
     <head>
