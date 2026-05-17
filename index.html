@@ -174,50 +174,100 @@
 
 let isOpen = true;
 
+let failedAttempts = 0;
+
+let locked = false;
+
 const status =
 document.getElementById("shopStatus");
 
-/* SECRET ADMIN ACCESS */
+const logo =
+document.querySelector(".logo");
 
-document.querySelector(".logo")
-.addEventListener("click", () => {
+let pressTimer;
 
-  let pass =
-  prompt("Admin Password");
+/* LONG PRESS START */
 
-  if(pass === "1009"){
+logo.addEventListener("mousedown", startPress);
+logo.addEventListener("touchstart", startPress);
 
-    isOpen = !isOpen;
+/* CANCEL PRESS */
 
-    if(isOpen){
+logo.addEventListener("mouseup", cancelPress);
+logo.addEventListener("mouseleave", cancelPress);
+logo.addEventListener("touchend", cancelPress);
 
-      status.innerHTML =
-      "🟢 WE ARE OPEN";
+function startPress(){
 
-      status.style.background =
-      "#081c0d";
+  if(locked) return;
 
-      status.style.color =
-      "#4cff88";
+  pressTimer = setTimeout(()=>{
+
+    let pass =
+    prompt("Admin Password");
+
+    if(pass === "0864"){
+
+      failedAttempts = 0;
+
+      isOpen = !isOpen;
+
+      if(isOpen){
+
+        status.innerHTML =
+        "🟢 WE ARE OPEN";
+
+        status.style.background =
+        "#081c0d";
+
+        status.style.color =
+        "#4cff88";
+
+      }
+
+      else{
+
+        status.innerHTML =
+        "🔴 WE ARE CLOSED";
+
+        status.style.background =
+        "#2a0808";
+
+        status.style.color =
+        "#ff5c5c";
+
+      }
 
     }
 
     else{
 
-      status.innerHTML =
-      "🔴 WE ARE CLOSED";
+      failedAttempts++;
 
-      status.style.background =
-      "#2a0808";
+      if(failedAttempts >= 2){
 
-      status.style.color =
-      "#ff5c5c";
+        locked = true;
+
+        setTimeout(()=>{
+
+          locked = false;
+          failedAttempts = 0;
+
+        }, 300000); /* 5 MIN LOCK */
+
+      }
 
     }
 
-  }
+  }, 3000); /* HOLD 3 SECONDS */
 
-});
+}
+
+function cancelPress(){
+
+  clearTimeout(pressTimer);
+
+}
 
 </script>
 </body>
