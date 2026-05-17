@@ -359,3 +359,18 @@ h2{
   }
 
 }
+.shop-status{
+  text-align:center;
+
+  padding:14px;
+
+  background:#081c0d;
+
+  color:#4cff88;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
